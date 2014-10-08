@@ -33,4 +33,7 @@ GolfClub::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Load fixtures in correct order
+  ENV["FIXTURES"] ||= "users,bookings"
 end

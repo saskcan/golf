@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
+  user: amy
   time: 2014-11-01 12:00:00
 
 two:
-  user_id: 1
+  user: ben
   time: 2014-11-01 12:20:00
 
 amy_christmas:
-  user_id: users(:amy).id
+  user: amy
   time: 2014-12-25 9:20:00
+
+ben_new_years:
+  user: ben
+  time: 2015-01-01 9:00:00

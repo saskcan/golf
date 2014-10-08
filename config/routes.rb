@@ -1,6 +1,6 @@
 GolfClub::Application.routes.draw do
 
-  resources :bookings
+  resources :bookings, only: [:index, :new, :create, :destroy]
 
   devise_for :users
   root to: "bookings#index"

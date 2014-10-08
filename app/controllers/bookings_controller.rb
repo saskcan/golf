@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:destroy]
+  before_action :ensure_owner, only: [:destroy]
 
   respond_to :html
 
@@ -8,26 +9,15 @@ class BookingsController < ApplicationController
     respond_with(@bookings)
   end
 
-  def show
-    respond_with(@booking)
-  end
-
   def new
     @booking = Booking.new
     respond_with(@booking)
   end
 
-  def edit
-  end
-
   def create
     @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
     @booking.save
-    respond_with(@booking)
-  end
-
-  def update
-    @booking.update(booking_params)
     respond_with(@booking)
   end
 
@@ -39,6 +29,12 @@ class BookingsController < ApplicationController
   private
     def set_booking
       @booking = Booking.find(params[:id])
+    end
+
+    def ensure_owner
+      unless @booking.user == current_user
+        redirect_to bookings_url, alert: "You can only modify your own bookings!"
+      end
     end
 
     def booking_params
