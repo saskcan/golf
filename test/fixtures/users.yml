@@ -15,3 +15,7 @@ two:
 amy:
   email: amy@coupgon.com
   encrypted_password: <%= Devise.bcrypt(User, 'secret123') %>
+
+ben:
+  email: ben@coupgon.com
+  encrypted_password: <%= Devise.bcrypt(User, 'secret456') %>

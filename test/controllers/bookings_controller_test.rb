@@ -21,7 +21,7 @@ class BookingsControllerTest < ActionController::TestCase
 
   test "should create booking" do
     assert_difference('Booking.count') do
-      post :create, booking: { time: @booking.time, user_id: @booking.user_id }
+      post :create, booking: { time: @booking.time + 1.day, user_id: @booking.user_id }
     end
 
     assert_redirected_to booking_path(assigns(:booking))

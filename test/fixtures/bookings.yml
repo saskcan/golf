@@ -2,8 +2,12 @@
 
 one:
   user_id: 1
-  time: 2014-10-08 13:57:34
+  time: 2014-11-01 12:00:00
 
 two:
   user_id: 1
-  time: 2014-10-08 13:57:34
+  time: 2014-11-01 12:20:00
+
+amy_christmas:
+  user_id: users(:amy).id
+  time: 2014-12-25 9:20:00
