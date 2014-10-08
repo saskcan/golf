@@ -24,7 +24,7 @@ class BookingsControllerTest < ActionController::TestCase
       post :create, booking: { time: @booking.time + 1.day, user_id: @booking.user_id }
     end
 
-    assert_redirected_to booking_path(assigns(:booking))
+    assert_redirected_to bookings_path
   end
 
   test "should destroy booking" do

@@ -35,5 +35,5 @@ GolfClub::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Load fixtures in correct order
-  ENV["FIXTURES"] ||= "users,bookings"
+  ENV["FIXTURES"] ||= "users,clubs,bookings"
 end

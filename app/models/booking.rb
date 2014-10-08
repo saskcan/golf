@@ -7,6 +7,7 @@ class Booking < ActiveRecord::Base
 	validate :time_must_be_at_0_20_or_40_minutes
 
 	belongs_to :user
+	belongs_to :club
 
 	def email
 		user.get_email()
