@@ -17,8 +17,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    @booking.save
-    respond_with(@booking)
+    if @booking.save
+      redirect_to bookings_url, alert: "Your booking was created successfully"
+    else
+      respond_with(@booking)
+    end
   end
 
   def destroy

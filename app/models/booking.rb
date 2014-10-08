@@ -8,6 +8,15 @@ class Booking < ActiveRecord::Base
 
 	belongs_to :user
 
+	def email
+		user.get_email()
+	end
+
+	def formatted_time
+		time.to_formatted_s(:long)
+	end
+
+	# validations
 	def time_cannot_be_before_9_am
 		if time.present?
 			if time.hour < 9

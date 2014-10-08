@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :bookings
 
+  def get_email
+  	email
+  end
+
 end

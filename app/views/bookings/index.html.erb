@@ -1,6 +1,6 @@
-<h1>Listing bookings</h1>
+<h1>Existing Reservations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -12,9 +12,13 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.user_id %></td>
-        <td><%= booking.time %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= booking.email %>&nbsp;</td>
+        <td><%= booking.formatted_time %>&nbsp;</td>
+        <td>
+          <% if current_user == booking.user %>
+            <%= link_to 'Cancel Reservation', booking, method: :delete, data: { confirm: 'Are you sure you want to cancel this booking?' }, class: "btn btn-danger btn-xs" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Booking', new_booking_path %>
+<%= link_to 'Reserve your tee-off time', new_booking_path, class: "btn btn-success" %>
