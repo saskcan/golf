@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy]
   before_action :ensure_owner, only: [:destroy]
+  before_action :set_clubs_for_select, only: [:new]
 
   respond_to :html
 
@@ -36,8 +37,12 @@ class BookingsController < ApplicationController
 
     def ensure_owner
       unless @booking.user == current_user
-        redirect_to bookings_url, alert: "You can only modify your own bookings!"
+        redirect_to bookings_url, alert: "You can only modify your own reservations!"
       end
+    end
+
+    def set_clubs_for_select
+      @clubs = Club.get_for_select()
     end
 
     def booking_params

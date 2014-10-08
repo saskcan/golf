@@ -4,4 +4,12 @@ class Club < ActiveRecord::Base
 
 	has_many :bookings
 
+	def get_name
+		name
+	end
+
+	def self.get_for_select
+		all
+	end
+
 end

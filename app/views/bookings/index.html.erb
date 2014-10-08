@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Club</th>
       <th>User</th>
       <th>Time</th>
       <th></th>
@@ -12,11 +13,12 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.email %>&nbsp;</td>
-        <td><%= booking.formatted_time %>&nbsp;</td>
+        <td><%= booking.club_name %></td>
+        <td><%= booking.email %></td>
+        <td><%= booking.formatted_time %></td>
         <td>
           <% if current_user == booking.user %>
-            <%= link_to 'Cancel Reservation', booking, method: :delete, data: { confirm: 'Are you sure you want to cancel this booking?' }, class: "btn btn-danger btn-xs" %>
+            <%= link_to 'Cancel Reservation', booking, method: :delete, data: { confirm: 'Are you sure you want to cancel this reservation?' }, class: "btn btn-danger btn-xs" %>
           <% end %>
         </td>
       </tr>

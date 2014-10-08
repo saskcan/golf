@@ -12,10 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :club_id %><br>
+    <%= f.select "club_id", options_from_collection_for_select(@clubs, "id", "name") %><br>
     <%= f.label :time %><br>
-    <%= f.datetime_select :time, start_hour: 9, end_hour: 17, minute_step: 20 %>
+    <%= f.datetime_select :time, start_year: Date.today.year, end_year: Date.today.year + 2, start_hour: 9, end_hour: 17, minute_step: 20 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Reserve!", class: "btn btn-success" %>
   </div>
 <% end %>

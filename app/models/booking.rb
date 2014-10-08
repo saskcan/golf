@@ -17,6 +17,10 @@ class Booking < ActiveRecord::Base
 		user.get_email()
 	end
 
+	def club_name
+		club.get_name()
+	end
+
 	def formatted_time
 		time.to_formatted_s(:long)
 	end
