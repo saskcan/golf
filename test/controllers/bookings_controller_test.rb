@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class BookingsControllerTest < ActionController::TestCase
+
+   setup :login_as_amy
+
   setup do
     @booking = bookings(:one)
   end

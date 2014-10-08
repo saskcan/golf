@@ -11,5 +11,12 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+
+  def login_as_amy
+  	sign_in(users(:amy))
+  end
+end
+
+class ActionController::TestCase
+	include Devise::TestHelpers
 end
