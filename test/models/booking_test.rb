@@ -46,13 +46,19 @@ class BookingTest < ActiveSupport::TestCase
 
 	test "a valid booking can be made" do
 		assert_difference('Booking.count', 1) do
-			Booking.create(time: DateTime.parse("2015-01-01 9:40:00"), user_id: users(:amy).id)
+			Booking.create(time: DateTime.parse("2015-01-01 9:40:00"), user: users(:amy), club: clubs(:rattle_snake_pit))
 		end
 	end
 
-	test "only one user can book a give time slot" do
+	test "only one user can book a given time slot" do
 		assert_difference('Booking.count', 0) do
 			Booking.create(time: bookings(:amy_christmas).time, user_id: users(:ben).id)
+		end
+	end
+
+	test "a booking must have a club" do
+		assert_difference('Booking.count', 0) do
+			Booking.create(time: DateTime.parse("2015-01-02 9:00:00"), user: users(:amy))
 		end
 	end
 

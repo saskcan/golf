@@ -1,7 +1,11 @@
 class Booking < ActiveRecord::Base
 
-	validates :time, presence: true, uniqueness: true
+	validates :time, presence: true
+	validates_uniqueness_of :time, scope: :club_id
+	validates :club_id, presence: true 
 	validates :user_id, presence: true
+
+	#custom validations
 	validate :time_cannot_be_before_9_am
 	validate :time_cannot_be_after_5_pm
 	validate :time_must_be_at_0_20_or_40_minutes
