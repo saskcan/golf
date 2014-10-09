@@ -36,4 +36,10 @@ GolfClub::Application.configure do
 
   # Load fixtures in correct order
   ENV["FIXTURES"] ||= "users,clubs,bookings"
+
+  #set time so time-dependent tests can be run
+  config.after_initialize do
+    t = Time.zone.parse("2014-12-25 9:00:00")
+    Timecop.travel(t)
+  end
 end

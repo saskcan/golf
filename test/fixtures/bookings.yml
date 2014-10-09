@@ -2,20 +2,25 @@
 
 one:
   user: amy
-  time: 2014-11-01 12:00:00
+  time: <%= Time.zone.parse("2014-11-01 12:00:00") %>
   club: grassy_acres
 
 two:
   user: ben
-  time: 2014-11-01 12:20:00
+  time: <%= Time.zone.parse("2014-11-01 12:20:00") %>
   club: grassy_acres
 
 amy_christmas:
   user: amy
-  time: 2014-12-25 9:20:00
+  time: <%= Time.zone.parse("2014-12-25 9:20:00") %>
   club: rattle_snake_pit
+
+amy_new_years:
+  user: amy
+  time: <%= Time.zone.parse("2015-01-01 9:00:00") %>
+  club: grassy_acres
 
 ben_new_years:
   user: ben
-  time: 2015-01-01 9:00:00
+  time: <%= Time.zone.parse("2015-01-01 9:00:00") %>
   club: rattle_snake_pit

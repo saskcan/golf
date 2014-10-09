@@ -1,12 +1,12 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:destroy]
   before_action :ensure_owner, only: [:destroy]
-  before_action :set_clubs_for_select, only: [:new]
+  before_action :set_clubs_for_select, only: [:new, :create]
 
   respond_to :html
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all.order(time: :desc)
     respond_with(@bookings)
   end
 
@@ -19,15 +19,18 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to bookings_url, alert: "Your booking was created successfully"
+      redirect_to bookings_url, notice: "Your reservation was created successfully"
     else
       respond_with(@booking)
     end
   end
 
   def destroy
-    @booking.destroy
-    respond_with(@booking)
+    if @booking.destroy
+      redirect_to bookings_url, notice: "Your reservation was cancelled"
+    else
+      redirect_to bookings_url, alert: "Your reservation can no longer be cancelled"
+    end
   end
 
   private

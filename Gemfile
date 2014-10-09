@@ -37,3 +37,6 @@ gem 'devise'
 
 # use Twitter Bootstrap for front-end styles
 gem 'bootstrap-sass'
+
+# use Timecop for testing time-dependent code
+gem 'timecop'

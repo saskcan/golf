@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<h2>Still not a member?</h2>
+
+<h4>Sign up is free</h4>
+<p>Create an account today and say goodbye to telephone reservations</p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -11,7 +14,7 @@
 
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+    <br>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

@@ -5,7 +5,7 @@ class BookingsControllerTest < ActionController::TestCase
    setup :login_as_amy
 
   setup do
-    @booking = bookings(:amy_christmas)
+    @booking = bookings(:amy_new_years)
   end
 
   test "should get index" do
