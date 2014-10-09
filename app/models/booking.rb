@@ -15,6 +15,8 @@ class Booking < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :club
 
+
+
 	def email
 		user.get_email()
 	end
@@ -25,6 +27,11 @@ class Booking < ActiveRecord::Base
 
 	def formatted_time
 		time.to_formatted_s(:long)
+	end
+
+	# all past bookings and bookings within the next hour return true
+	def started_or_upcoming?
+		(time - Time.zone.now) < 1.hour
 	end
 
 	private

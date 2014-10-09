@@ -17,7 +17,7 @@
         <td><%= booking.email %></td>
         <td><%= booking.formatted_time %></td>
         <td>
-          <% if current_user == booking.user %>
+          <% if current_user == booking.user && !booking.started_or_upcoming? %>
             <%= link_to 'Cancel Reservation', booking, method: :delete, data: { confirm: 'Are you sure you want to cancel this reservation?' }, class: "btn btn-danger btn-xs" %>
           <% end %>
         </td>

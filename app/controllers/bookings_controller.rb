@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     if @booking.destroy
       redirect_to bookings_url, notice: "Your reservation was cancelled"
     else
-      redirect_to bookings_url, alert: "Your reservation can no longer be cancelled"
+      redirect_to bookings_url, alert: "Reservations may only be cancelled up to 1 hour before they start"
     end
   end
 
